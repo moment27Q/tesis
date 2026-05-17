@@ -1,7 +1,12 @@
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", sans-serif;
   color: #1f2a1f;
-  background: radial-gradient(circle at top right, #f4f6f1 0%, #e9ece4 45%, #e2e6dd 100%);
+  background: radial-gradient(
+    circle at top right,
+    #f4f6f1 0%,
+    #e9ece4 45%,
+    #e2e6dd 100%
+  );
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -13,13 +13,16 @@
 }
 
 .topbar {
-  min-height: 72px;
   display: flex;
+  width: 100%;
+  height: 76px;
+  min-height: 72px;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 0.9rem 2rem;
-  background: #ffffff;
+  background: #f6fbf1;
+  border-bottom: 0.1px solid #47556923;
 }
 
 .brand {
@@ -27,15 +30,19 @@
   font-size: 1.2rem;
   font-weight: 800;
   text-decoration: none;
+  width: 115px;
+  height: 32px;
 }
 
 .brand--button {
   border: 0;
   background: none;
   cursor: pointer;
-  font: inherit;
+  font-size: 24px;
   padding: 0;
   text-align: left;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
 }
 
 .brand--button:hover {
@@ -44,7 +51,7 @@
 
 .menu {
   display: flex;
-  gap: 1.4rem;
+  gap: 32px;
   align-items: center;
 }
 
@@ -59,13 +66,15 @@
   border: 0;
   background: none;
   cursor: pointer;
-  font: inherit;
-  color: #4e4e4e;
-  font-size: 0.9rem;
+  font-family: "Inter", sans-serif;
+  color: #475569;
+  font-size: 16px;
   font-weight: 600;
   padding: 0.2rem 0;
   border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .menu-link--active {
@@ -80,25 +89,27 @@
 .pill-btn {
   border: 0;
   border-radius: 999px;
-  padding: 0.58rem 1.2rem;
-  background: #0f7d3f;
+  padding: 10px 24px;
+  background: #126d27;
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.84rem;
   cursor: pointer;
 }
 
 .hero-section {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  background-color: #f6fbf1;
   min-height: calc(100vh - 72px);
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
 }
 
 .hero-copy {
-  background: #0f7d3f;
+  padding-left: 15%;
+  background: #f6fbf1;
   color: #ffffff;
-  padding: clamp(2rem, 5vw, 5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,22 +117,27 @@
 
 .hero-copy h1 {
   margin: 0;
-  font-size: clamp(2.2rem, 4.4vw, 4.2rem);
+  font-family: "Inter", sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  color: #181d17;
   line-height: 1.04;
   letter-spacing: -0.03em;
 }
 
 .hero-copy h1 em {
   font-style: normal;
-  color: #fff;
+  color: #126d27;
 }
 
 .hero-copy > p {
   margin-top: 1.1rem;
   max-width: 45ch;
-  color: rgba(255, 255, 255, 0.94);
-  line-height: 1.55;
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: #40493e;
+  line-height: 28px;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
 }
 
 .calculator {
@@ -176,7 +192,9 @@
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 0.65rem;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .calc-amount-field:focus-within {
@@ -334,7 +352,7 @@
 }
 
 .calc-grid div {
-  background: #f3f4f7;
+  background: #f1f5eb;
   border-radius: 0.8rem;
   padding: 0.72rem 0.76rem;
 }
@@ -364,9 +382,9 @@
   -webkit-appearance: none;
 }
 
-.currency-input input[type='number'],
-.term-input input[type='number'],
-.calc-amount-field input[type='number'] {
+.currency-input input[type="number"],
+.term-input input[type="number"],
+.calc-amount-field input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -375,7 +393,7 @@
   width: 100%;
   border: 0;
   border-radius: 0.72rem;
-  background: #2c8be4;
+  background: #126d27;
   color: #fff;
   font-weight: 700;
   padding: 0.96rem;
@@ -384,16 +402,53 @@
 }
 
 .hero-visual {
+  padding-right: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6fbf1;
   position: relative;
-  min-height: 100%;
   overflow: hidden;
 }
 
 .hero-photo {
+  position: relative;
+  border: 0.1px solid #ababab;
+  border-radius: 40px;
+  transform: rotate(2deg);
   width: 100%;
-  height: 100%;
   display: block;
   object-fit: cover;
+}
+
+.photo-container {
+  position: relative;
+  padding: 0;
+  max-width: 592px;
+  max-height: 740px;
+  margin: 10%;
+}
+
+.blob {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+  filter: blur(30px);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob-tr {
+  background: #a0d4f5;
+  top: 0;
+  right: 0;
+}
+.blob-bl {
+  background: #c0a0f5;
+  left: 0;
+  bottom: 0;
 }
 
 .photo-caption {
@@ -411,14 +466,14 @@
 
 .trust-card {
   position: absolute;
-  right: 1.2rem;
+  right: 10%;
   bottom: 1.2rem;
   display: inline-flex;
   align-items: center;
   gap: 0.68rem;
   background: #fff;
-  border-radius: 999px;
-  padding: 0.55rem 0.82rem;
+  border-radius: 15px;
+  padding: 24px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -426,24 +481,24 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   color: #fff;
   background: #0b8f46;
-  font-size: 0.8rem;
+  font-size: 30px;
   font-weight: 700;
 }
 
 .trust-card strong {
   display: block;
   color: #1d1d1d;
-  font-size: 0.78rem;
+  font-size: 16px;
 }
 
 .trust-card small {
   color: #6d6d6d;
-  font-size: 0.66rem;
+  font-size: 14px;
 }
 
 .benefit-strip {
@@ -470,12 +525,12 @@
   align-items: center;
   gap: 2.6rem;
   width: max-content;
-  animation: scroll-logos 26s linear infinite;
+  animation: scroll-logos 30s linear infinite;
 }
 
 .logo-item {
-  width: 240px;
-  height: 72px;
+  width: 450px;
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -483,10 +538,9 @@
 }
 
 .logo-item img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 300px;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.15) brightness(1.2);
+  filter: grayscale(1) contrast(1.15) brightness(0.2);
   mix-blend-mode: multiply;
   opacity: 0.95;
 }
@@ -502,7 +556,7 @@
 }
 
 .workflow-promo-block {
-  background: linear-gradient(180deg, #d8e2d5 0%, #e3ebe1 42%, #e8efe6 100%);
+  background-color: #f6fbf1;
 }
 
 .workflow-section {
@@ -523,16 +577,16 @@
 .workflow-section h2 {
   margin: 0;
   color: #1a261d;
-  font-size: clamp(1.85rem, 2.8vw, 2.45rem);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: 48px;
+  font-weight: 800;
 }
 
 .subtitle {
   margin: 0.65rem 0 0;
-  color: #4d5c52;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: #40493e;
+  font-size: 18px;
   line-height: 1.45;
+  font-weight: 400;
 }
 
 .workflow-grid {
@@ -552,13 +606,11 @@
 .workflow-card {
   height: 100%;
   background: #fbfcfa;
-  border: 1px solid rgba(15, 125, 63, 0.12);
   border-radius: 1rem;
   padding: 1.25rem 1.2rem 1.35rem;
-  box-shadow: 0 10px 28px rgba(26, 48, 32, 0.06);
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 16px;
 }
 
 .card-head {
@@ -570,17 +622,12 @@
 }
 
 .chip {
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 50px;
+  height: 50px;
   border-radius: 0.55rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  background: #0f7d3f;
-  font-size: 0.82rem;
-  font-weight: 700;
-  flex-shrink: 0;
 }
 
 .step-watermark {
@@ -601,17 +648,15 @@
 }
 
 .workflow-title {
-  margin: 0.35rem 0 0;
   color: #1a261d;
   font-size: 1.35rem;
   letter-spacing: -0.02em;
 }
 
 .workflow-body {
-  margin: 0.55rem 0 0;
   color: #55635a;
   line-height: 1.55;
-  font-size: 0.94rem;
+  font-size: 16px;
   flex: 1;
 }
 
@@ -629,12 +674,17 @@
 }
 
 .promo-main {
-  min-height: 300px;
+  min-height: 500px;
   border-radius: 1rem;
   padding: clamp(1.5rem, 3vw, 2rem);
   background:
-    linear-gradient(145deg, rgba(6, 58, 30, 0.94) 0%, rgba(15, 125, 63, 0.88) 55%, rgba(15, 125, 63, 0.82) 100%),
-    url('../imagen/istockphoto-1849172463-612x612.jpg');
+    linear-gradient(
+      145deg,
+      rgba(6, 58, 30, 0.2) 0%,
+      rgba(15, 125, 63, 0.4) 10%,
+      rgba(15, 125, 63, 0.7) 100%
+    ),
+    url("./assets/valuacion_img/valuacion_card.png");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -670,7 +720,9 @@
   font-weight: 700;
   font-size: 0.92rem;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .promo-main button:hover {
@@ -720,9 +772,10 @@
 
 .promo-help {
   flex: 1;
-  background: #f4f8f2;
+  background: #e5eae0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .promo-help h4 {
@@ -736,7 +789,6 @@
   color: #55635a;
   font-size: 0.93rem;
   line-height: 1.5;
-  flex: 1;
 }
 
 .promo-help a {
@@ -767,6 +819,7 @@
   }
 
   .hero-visual {
+    background-color: #f6fbf1;
     min-height: 420px;
   }
 
@@ -821,6 +874,7 @@
   }
 
   .hero-visual {
+    background-color: #f6fbf1;
     min-height: 360px;
   }
 
@@ -970,7 +1024,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .register-close:hover {
@@ -1023,7 +1079,9 @@
   border: 1px solid #e0e6e2;
   border-radius: 0.85rem;
   padding: 0.65rem 0.85rem;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .register-input-row:focus-within {
@@ -1097,7 +1155,9 @@
   cursor: pointer;
   background: linear-gradient(180deg, #16a34a 0%, #0f7d3f 55%, #0a5c2e 100%);
   box-shadow: 0 10px 22px rgba(15, 125, 63, 0.28);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .register-submit:hover {
@@ -1222,7 +1282,13 @@
   padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 5vw, 4rem);
   display: flex;
   flex-direction: column;
-  background: linear-gradient(165deg, #1a4d28 0%, #2d7a3f 42%, #4fa85c 88%, #5bb067 100%);
+  background: linear-gradient(
+    165deg,
+    #1a4d28 0%,
+    #2d7a3f 42%,
+    #4fa85c 88%,
+    #5bb067 100%
+  );
 }
 
 .login-aside-building {
@@ -1240,7 +1306,11 @@
       rgba(255, 255, 255, 0.28) 0 1px,
       transparent 1px 32px
     );
-  mask-image: radial-gradient(ellipse 90% 70% at 100% 100%, black 20%, transparent 72%);
+  mask-image: radial-gradient(
+    ellipse 90% 70% at 100% 100%,
+    black 20%,
+    transparent 72%
+  );
   pointer-events: none;
 }
 
@@ -1380,7 +1450,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
 }
 
 .login-close:hover {
@@ -1452,7 +1524,7 @@
   text-decoration: underline;
 }
 
-.login-field input:not([type='checkbox']) {
+.login-field input:not([type="checkbox"]) {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #dde3db;
@@ -1461,10 +1533,13 @@
   font-size: 0.95rem;
   background: #eef1ea;
   color: #1a221c;
-  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
-.login-field input:not([type='checkbox']):focus {
+.login-field input:not([type="checkbox"]):focus {
   outline: none;
   border-color: rgba(15, 125, 63, 0.45);
   background: #fff;
@@ -1483,7 +1558,10 @@
   border-radius: 0.75rem;
   background: #eef1ea;
   padding-right: 0.35rem;
-  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .login-password-wrap:focus-within {
@@ -1551,7 +1629,9 @@
   cursor: pointer;
   background: linear-gradient(180deg, #3d9a52 0%, #2d7a3f 45%, #1e5a2e 100%);
   box-shadow: 0 10px 22px rgba(30, 90, 46, 0.28);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .login-submit:hover {
@@ -1573,7 +1653,7 @@
 
 .login-divider::before,
 .login-divider::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
   background: #d5dcd4;
@@ -1599,7 +1679,9 @@
   color: #2f3832;
   cursor: pointer;
   font-family: inherit;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .login-oauth-btn:hover {
