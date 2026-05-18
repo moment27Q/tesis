@@ -324,7 +324,7 @@
       rgba(15, 125, 63, 0.4) 10%,
       rgba(15, 125, 63, 0.7) 100%
     ),
-    url("./assets/valuacion_img/valuacion_card.png");
+    url("../assets/valuacion_img/valuacion_card.png");
   background-size: cover;
   background-position: center;
   color: #fff;
