@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react'
 import { IconEye, IconEyeOff, IconGoogle, IconPasskey } from './LoginIcons'
+import styles from './LoginModal.module.css'
 
 type LoginModalProps = {
   open: boolean
@@ -38,32 +39,27 @@ export function LoginModal({ open, onClose, onNavigateToRegister }: LoginModalPr
   }
 
   return (
-    <div
-      className="login-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={titleId}
-    >
-      <div className="login-split">
-        <aside className="login-aside" aria-label="Jemacash">
-          <div className="login-aside-building" aria-hidden="true" />
-          <div className="login-aside-scrim" />
-          <div className="login-aside-content">
-            <p className="login-aside-brand">Jemacash</p>
-            <div className="login-aside-copy">
-              <h2 className="login-aside-title">Tu futuro financiero comienza hoy.</h2>
-              <p className="login-aside-sub">
+    <div className={styles.login_overlay} role="dialog" aria-modal="true" aria-labelledby={titleId}>
+      <div className={styles.login_split}>
+        <aside className={styles.login_aside} aria-label="Jemacash">
+          <div className={styles.login_aside_building} aria-hidden="true" />
+          <div className={styles.login_aside_scrim} />
+          <div className={styles.login_aside_content}>
+            <p className={styles.login_aside_brand}>Jemacash</p>
+            <div className={styles.login_aside_copy}>
+              <h2 className={styles.login_aside_title}>Tu futuro financiero comienza hoy.</h2>
+              <p className={styles.login_aside_sub}>
                 Gestione su capital con la elegancia y seguridad que solo Jemacash puede ofrecer.
                 Rápida y eficiente.
               </p>
             </div>
-            <div className="login-social-pill">
-              <div className="login-avatar-stack" aria-hidden="true">
-                <span className="login-avatar" />
-                <span className="login-avatar" />
-                <span className="login-avatar" />
+            <div className={styles.login_social_pill}>
+              <div className={styles.login_avatar_stack} aria-hidden="true">
+                <span className={styles.login_avatar} />
+                <span className={styles.login_avatar} />
+                <span className={styles.login_avatar} />
               </div>
-              <div className="login-social-text">
+              <div className={styles.login_social_text}>
                 <strong>+10k Usuarios</strong>
                 <span>Confían en nuestra plataforma</span>
               </div>
@@ -71,23 +67,20 @@ export function LoginModal({ open, onClose, onNavigateToRegister }: LoginModalPr
           </div>
         </aside>
 
-        <div className="login-panel">
-          <button type="button" className="login-close" onClick={onClose} aria-label="Cerrar">
+        <div className={styles.login_panel}>
+          <button type="button" className={styles.login_close} onClick={onClose} aria-label="Cerrar">
             ×
           </button>
 
-          <form
-            className="login-form"
-            onSubmit={(event) => {
-              event.preventDefault()
-            }}
-          >
-            <header className="login-form-header">
+          <form className={styles.login_form} onSubmit={(event) => {
+            event.preventDefault()
+          }}>
+            <header className={styles.login_form_header}>
               <h2 id={titleId}>Iniciar Sesión</h2>
               <p>Bienvenido de nuevo. Acceda a su panel de control.</p>
             </header>
 
-            <div className="login-field">
+            <div className={styles.login_field}>
               <label htmlFor="login-identifier">Correo electrónico o Teléfono</label>
               <input
                 id="login-identifier"
@@ -100,14 +93,14 @@ export function LoginModal({ open, onClose, onNavigateToRegister }: LoginModalPr
               />
             </div>
 
-            <div className="login-field">
-              <div className="login-label-row">
+            <div className={styles.login_field}>
+              <div className={styles.login_label_row}>
                 <label htmlFor={passwordId}>Contraseña</label>
-                <a className="login-link-inline" href="#">
+                <a className={styles.login_link_inline} href="#">
                   ¿Olvidó su contraseña?
                 </a>
               </div>
-              <div className="login-password-wrap">
+              <div className={styles.login_password_wrap}>
                 <input
                   id={passwordId}
                   name="password"
@@ -119,7 +112,7 @@ export function LoginModal({ open, onClose, onNavigateToRegister }: LoginModalPr
                 />
                 <button
                   type="button"
-                  className="login-toggle-visibility"
+                  className={styles.login_toggle_visibility}
                   onClick={() => setShowPassword((v) => !v)}
                   aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
                 >
@@ -128,7 +121,7 @@ export function LoginModal({ open, onClose, onNavigateToRegister }: LoginModalPr
               </div>
             </div>
 
-            <label className="login-remember">
+            <label className={styles.login_remember}>
               <input
                 type="checkbox"
                 checked={remember}
@@ -137,33 +130,33 @@ export function LoginModal({ open, onClose, onNavigateToRegister }: LoginModalPr
               <span>Mantenerme conectado</span>
             </label>
 
-            <button type="submit" className="login-submit">
+            <button type="submit" className={styles.login_submit}>
               Iniciar sesión <span aria-hidden="true">→</span>
             </button>
 
-            <div className="login-divider">
+            <div className={styles.login_divider}>
               <span>O continuar con</span>
             </div>
 
-            <div className="login-oauth-row">
-              <button type="button" className="login-oauth-btn">
-                <IconGoogle className="login-oauth-icon" />
+            <div className={styles.login_oauth_row}>
+              <button type="button" className={styles.login_oauth_btn}>
+                <IconGoogle className={styles.login_oauth_icon} />
                 Google
               </button>
-              <button type="button" className="login-oauth-btn">
-                <IconPasskey className="login-oauth-icon login-oauth-icon--stroke" />
+              <button type="button" className={styles.login_oauth_btn}>
+                <IconPasskey className={`${styles.login_oauth_icon} ${styles.login_oauth_icon_stroke}`} />
                 Passkey
               </button>
             </div>
 
-            <p className="login-register-prompt">
+            <p className={styles.login_register_prompt}>
               ¿No tiene una cuenta?{' '}
-              <button type="button" className="login-register-link" onClick={onNavigateToRegister}>
+              <button type="button" className={styles.login_register_link} onClick={onNavigateToRegister}>
                 Regístrese gratis
               </button>
             </p>
 
-            <nav className="login-legal" aria-label="Enlaces legales">
+            <nav className={styles.login_legal} aria-label="Enlaces legales">
               <a href="#">Ayuda</a>
               <a href="#">Privacidad</a>
               <a href="#">Términos</a>

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { blogCategories, featuredPost, recentPosts } from '../../data/blogContent'
-import './BlogPage.css'
+import styles from './BlogPage.module.css'
 
 type BlogPageProps = {
   featuredBackgroundSrc: string
@@ -8,7 +8,7 @@ type BlogPageProps = {
 
 function IconClock() {
   return (
-    <svg className="blog-icon-clock" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg className={styles.blog_icon_clock} viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
       <path d="M12 7v5.5l3 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
@@ -27,31 +27,31 @@ export function BlogPage({ featuredBackgroundSrc }: BlogPageProps) {
   }
 
   return (
-    <div className="blog-page">
-      <section className="blog-featured" aria-labelledby="blog-featured-heading">
-        <div className="blog-featured-grid">
-          <div className="blog-featured-visual">
+    <div className={styles.blog_page}>
+      <section className={styles.blog_featured} aria-labelledby="blog-featured-heading">
+        <div className={styles.blog_featured_grid}>
+          <div className={styles.blog_featured_visual}>
             <img src={featuredBackgroundSrc} alt="" decoding="async" />
-            <div className="blog-featured-visual-frame" aria-hidden="true" />
+            <div className={styles.blog_featured_visual_frame} aria-hidden="true" />
           </div>
-          <div className="blog-featured-copy">
-            <p className="blog-kicker">Texto largo · edición</p>
-            <h1 id="blog-featured-heading" className="blog-featured-title">
+          <div className={styles.blog_featured_copy}>
+            <p className={styles.blog_kicker}>Texto largo · edición</p>
+            <h1 id="blog-featured-heading" className={styles.blog_featured_title}>
               {featuredPost.title}
             </h1>
-            <p className="blog-featured-excerpt">{featuredPost.excerpt}</p>
-            <a className="blog-featured-cta" href="#">
+            <p className={styles.blog_featured_excerpt}>{featuredPost.excerpt}</p>
+            <a className={styles.blog_featured_cta} href="#">
               Seguir leyendo
             </a>
           </div>
         </div>
       </section>
 
-      <div className="blog-layout">
-        <div className="blog-main">
-          <div className="blog-section-head">
-            <h2 className="blog-section-title">Lo último</h2>
-            <div className="blog-carousel-nav" aria-label="Desplazar lista">
+      <div className={styles.blog_layout}>
+        <div className={styles.blog_main}>
+          <div className={styles.blog_section_head}>
+            <h2 className={styles.blog_section_title}>Lo último</h2>
+            <div className={styles.blog_carousel_nav} aria-label="Desplazar lista">
               <button type="button" onClick={() => scrollStories(-1)} aria-label="Anterior">
                 ←
               </button>
@@ -61,25 +61,25 @@ export function BlogPage({ featuredBackgroundSrc }: BlogPageProps) {
             </div>
           </div>
 
-          <div className="blog-cards-scroller" ref={scrollerRef}>
-            <ul className="blog-cards-track">
+          <div className={styles.blog_cards_scroller} ref={scrollerRef}>
+            <ul className={styles.blog_cards_track}>
               {recentPosts.map((post) => (
                 <li key={post.id}>
-                  <article className="blog-card">
+                  <article className={styles.blog_card}>
                     <div
-                      className={`blog-card-thumb blog-card-thumb--${post.thumbTone}`}
+                      className={`${styles.blog_card_thumb} ${styles[`blog_card_thumb_${post.thumbTone}`]}`}
                       aria-hidden="true"
                     />
-                    <div className="blog-card-body">
-                      <p className="blog-card-category">{post.category}</p>
-                      <h3 className="blog-card-title">{post.title}</h3>
-                      <p className="blog-card-excerpt">{post.excerpt}</p>
-                      <div className="blog-card-footer">
-                        <span className="blog-card-meta">
+                    <div className={styles.blog_card_body}>
+                      <p className={styles.blog_card_category}>{post.category}</p>
+                      <h3 className={styles.blog_card_title}>{post.title}</h3>
+                      <p className={styles.blog_card_excerpt}>{post.excerpt}</p>
+                      <div className={styles.blog_card_footer}>
+                        <span className={styles.blog_card_meta}>
                           <IconClock />
                           {post.readMinutes} min
                         </span>
-                        <a className="blog-card-more" href="#">
+                        <a className={styles.blog_card_more} href="#">
                           Abrir
                         </a>
                       </div>
@@ -91,13 +91,13 @@ export function BlogPage({ featuredBackgroundSrc }: BlogPageProps) {
           </div>
         </div>
 
-        <aside className="blog-sidebar" aria-label="Barra lateral">
-          <div className="blog-widget blog-widget--categories">
-            <h3 className="blog-widget-title">Temas</h3>
-            <ul className="blog-category-list">
+        <aside className={styles.blog_sidebar} aria-label="Barra lateral">
+          <div className={`${styles.blog_widget} ${styles.blog_widget_categories}`}>
+            <h3 className={styles.blog_widget_title}>Temas</h3>
+            <ul className={styles.blog_category_list}>
               {blogCategories.map((cat) => (
                 <li key={cat}>
-                  <button type="button" className="blog-category-link">
+                  <button type="button" className={styles.blog_category_link}>
                     {cat}
                   </button>
                 </li>
@@ -105,28 +105,28 @@ export function BlogPage({ featuredBackgroundSrc }: BlogPageProps) {
             </ul>
           </div>
 
-          <div className="blog-widget blog-widget--newsletter">
-            <h3 className="blog-widget-newsletter-title">Carta quincenal</h3>
-            <p className="blog-widget-newsletter-text">
+          <div className={`${styles.blog_widget} ${styles.blog_widget_newsletter}`}>
+            <h3 className={styles.blog_widget_newsletter_title}>Carta quincenal</h3>
+            <p className={styles.blog_widget_newsletter_text}>
               Un correo corto: lo que leímos, un aviso si aparece algo raro en el sector y un solo
               enlace útil. Sin cadenas de “marketing”.
             </p>
-            <label className="blog-newsletter-label" htmlFor="blog-newsletter-email">
+            <label className={styles.blog_newsletter_label} htmlFor="blog-newsletter-email">
               Correo
             </label>
             <input
               id="blog-newsletter-email"
               type="email"
-              className="blog-newsletter-input"
+              className={styles.blog_newsletter_input}
               placeholder="tu@correo.com"
               value={newsletterEmail}
               onChange={(e) => setNewsletterEmail(e.target.value)}
               autoComplete="email"
             />
-            <button type="button" className="blog-newsletter-submit">
+            <button type="button" className={styles.blog_newsletter_submit}>
               Apuntarme
             </button>
-            <p className="blog-newsletter-foot">
+            <p className={styles.blog_newsletter_foot}>
               Puedes salirte cuando quieras; no compartimos la lista con terceros.
             </p>
           </div>

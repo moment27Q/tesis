@@ -1,4 +1,6 @@
-export type AppPage = 'home' | 'blog'
+import styles from "./SiteHeader.module.css";
+
+export type AppPage = "home" | "blog";
 
 type SiteHeaderProps = {
   activePage: AppPage
@@ -9,31 +11,31 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ activePage, onGoHome, onGoBlog, onPidePrestamo }: SiteHeaderProps) {
   return (
-    <header className="topbar">
-      <button type="button" className="brand brand--button" onClick={onGoHome}>
+    <header className={styles.topbar}>
+      <button type="button" className={`${styles.brand} ${styles.brand_button}`} onClick={onGoHome}>
         Jemacash
       </button>
 
-      <nav className="menu" aria-label="Navegación principal">
-        <button type="button" className="menu-link menu-link--ghost" onClick={onGoHome}>
+      <nav className={styles.menu} aria-label="Navegación principal">
+        <button type="button" className={`${styles.menu_link} ${styles.menu_link_ghost}`} onClick={onGoHome}>
           Préstamos
         </button>
-        <button type="button" className="menu-link menu-link--ghost" onClick={onGoHome}>
+        <button type="button" className={`${styles.menu_link} ${styles.menu_link_ghost}`} onClick={onGoHome}>
           Valuar Equipo
         </button>
-        <button type="button" className="menu-link menu-link--ghost" onClick={onGoHome}>
+        <button type="button" className={`${styles.menu_link} ${styles.menu_link_ghost}`} onClick={onGoHome}>
           Nosotros
         </button>
         <button
           type="button"
-          className={`menu-link${activePage === 'blog' ? ' menu-link--active' : ' menu-link--ghost'}`}
+          className={`${styles.menu_link} ${activePage === "blog" ? styles.menu_link_active : styles.menu_link_ghost}`}
           onClick={onGoBlog}
         >
           Blog
         </button>
       </nav>
 
-      <button className="pill-btn" type="button" onClick={onPidePrestamo}>
+      <button className={styles.pill_btn} type="button" onClick={onPidePrestamo}>
         Pide tu préstamo
       </button>
     </header>

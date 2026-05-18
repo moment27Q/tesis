@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react'
 import { IconLock, IconMail, IconPhone, IconUser } from './RegisterIcons'
+import styles from './RegisterModal.module.css'
 
 type RegisterModalProps = {
   open: boolean
@@ -44,55 +45,39 @@ export function RegisterModal({
   }
 
   return (
-    <div
-      className="register-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={titleId}
-    >
-      <div className="register-split">
-        <aside
-          className="register-aside"
-          style={{ backgroundImage: `url(${heroBackgroundSrc})` }}
-        >
-          <div className="register-aside-scrim" />
-          <div className="register-aside-content">
-            <p className="register-aside-brand">Jemacash</p>
-            <h2 className="register-aside-title">
+    <div className={styles.register_overlay} role="dialog" aria-modal="true" aria-labelledby={titleId}>
+      <div className={styles.register_split}>
+        <aside className={styles.register_aside} style={{ backgroundImage: `url(${heroBackgroundSrc})` }}>
+          <div className={styles.register_aside_scrim} />
+          <div className={styles.register_aside_content}>
+            <p className={styles.register_aside_brand}>Jemacash</p>
+            <h2 className={styles.register_aside_title}>
               Tu aliado en el camino al éxito financiero.
             </h2>
-            <p className="register-aside-footer">
+            <p className={styles.register_aside_footer}>
               Únete a la comunidad de Jemacash y gestiona tus finanzas con la seguridad de un
               experto.
             </p>
           </div>
         </aside>
 
-        <div className="register-panel">
-          <button
-            type="button"
-            className="register-close"
-            onClick={onClose}
-            aria-label="Cerrar registro"
-          >
+        <div className={styles.register_panel}>
+          <button type="button" className={styles.register_close} onClick={onClose} aria-label="Cerrar registro">
             ×
           </button>
 
-          <form
-            className="register-form"
-            onSubmit={(event) => {
-              event.preventDefault()
-            }}
-          >
-            <header className="register-form-header">
+          <form className={styles.register_form} onSubmit={(event) => {
+            event.preventDefault()
+          }}>
+            <header className={styles.register_form_header}>
               <h2 id={titleId}>Crear Usuario</h2>
               <p>Comienza tu viaje financiero hoy mismo.</p>
             </header>
 
-            <div className="register-field">
+            <div className={styles.register_field}>
               <label htmlFor="reg-fullname">Nombre completo</label>
-              <div className="register-input-row">
-                <span className="register-input-icon">
+              <div className={styles.register_input_row}>
+                <span className={styles.register_input_icon}>
                   <IconUser />
                 </span>
                 <input
@@ -107,10 +92,10 @@ export function RegisterModal({
               </div>
             </div>
 
-            <div className="register-field">
+            <div className={styles.register_field}>
               <label htmlFor="reg-email">Correo electrónico</label>
-              <div className="register-input-row">
-                <span className="register-input-icon">
+              <div className={styles.register_input_row}>
+                <span className={styles.register_input_icon}>
                   <IconMail />
                 </span>
                 <input
@@ -125,10 +110,10 @@ export function RegisterModal({
               </div>
             </div>
 
-            <div className="register-field">
+            <div className={styles.register_field}>
               <label htmlFor="reg-phone">Número de teléfono</label>
-              <div className="register-input-row">
-                <span className="register-input-icon">
+              <div className={styles.register_input_row}>
+                <span className={styles.register_input_icon}>
                   <IconPhone />
                 </span>
                 <input
@@ -143,10 +128,10 @@ export function RegisterModal({
               </div>
             </div>
 
-            <div className="register-field">
+            <div className={styles.register_field}>
               <label htmlFor="reg-password">Contraseña</label>
-              <div className="register-input-row">
-                <span className="register-input-icon">
+              <div className={styles.register_input_row}>
+                <span className={styles.register_input_icon}>
                   <IconLock />
                 </span>
                 <input
@@ -162,7 +147,7 @@ export function RegisterModal({
               </div>
             </div>
 
-            <label className="register-terms">
+            <label className={styles.register_terms}>
               <input
                 type="checkbox"
                 checked={termsAccepted}
@@ -174,13 +159,13 @@ export function RegisterModal({
               </span>
             </label>
 
-            <button type="submit" className="register-submit">
+            <button type="submit" className={styles.register_submit}>
               Crear cuenta
             </button>
 
-            <p className="register-login-prompt">
+            <p className={styles.register_login_prompt}>
               ¿Ya tienes cuenta?{' '}
-              <button type="button" className="register-login-link" onClick={onNavigateToLogin}>
+              <button type="button" className={styles.register_login_link} onClick={onNavigateToLogin}>
                 Inicia sesión
               </button>
             </p>
