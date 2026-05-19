@@ -1,4 +1,5 @@
 .calculator {
+  width: fit-content;
   margin-top: 1.4rem;
   width: min(540px, 100%);
   background: #ffffff;

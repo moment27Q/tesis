@@ -1,6 +1,7 @@
 .hero_section {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 5%;
   background-color: #f6fbf1;
   min-height: calc(100vh - 72px);
@@ -8,12 +9,12 @@
 }
 
 .hero_copy {
-  padding-left: 15%;
   background: #f6fbf1;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 540px;
 }
 
 .hero_copy h1 {
@@ -24,9 +25,11 @@
   color: #181d17;
   line-height: 1.04;
   letter-spacing: -0.03em;
+  overflow-wrap: break-word;
 }
 
 .hero_copy h1 em {
+  width: 100%;
   font-style: normal;
   color: #126d27;
 }
@@ -34,6 +37,7 @@
 .hero_copy > p {
   margin-top: 1.1rem;
   max-width: 45ch;
+  width: 100%;
   color: #40493e;
   line-height: 28px;
   font-size: 20px;
@@ -42,7 +46,6 @@
 }
 
 .hero_visual {
-  padding-right: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -66,7 +69,6 @@
   padding: 0;
   max-width: 592px;
   max-height: 740px;
-  margin: 10%;
 }
 
 .blob {

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { partnerLogos } from "../data/partnerLogos";
 import { workflowSteps } from "../data/workflowSteps";
 import styles from "./Home.module.css";
+import Footer from "../components/footer/Footer";
 
 function Home() {
   const [amountNeeded, setAmountNeeded] = useState("17000");
@@ -17,9 +18,7 @@ function Home() {
       >
         <div className={styles.hero_copy} data-tone="left">
           <h1>
-            Tu préstamo al toque
-            <br />
-            con <em>Jemacash</em>
+            Tu préstamo al toque con <em>Jemacash</em>
           </h1>
 
           <p>
@@ -141,6 +140,8 @@ function Home() {
           </div>
         </section>
       </div>
+
+      <Footer />
     </>
   );
 }
